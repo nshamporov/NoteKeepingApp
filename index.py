@@ -6,7 +6,6 @@ import sys
 
 def main():
     
-
     while True:
         title = "Note Keeping App"
         print(f"\n{'=' * 10} {title} {'=' * 10}")
@@ -18,7 +17,7 @@ def main():
         print("\n5. Exit")
 
         user_choice = input("\nEnter number 1, 2, 3, 4, or 5: ")  
-        
+
         if user_choice == "1":
             add = importlib.import_module("add")
             add.create()

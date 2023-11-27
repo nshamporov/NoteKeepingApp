@@ -19,9 +19,8 @@ def create():
                         with open(file_path, "w") as file:                     
                                 file.write(input("\nEnter your content here: "))  
                         print(f"\nNote '{fname}' created succefully." + f"\n\n{'=' * 38}")
-                        # print(f"\n{'=' * 38}")
                 else:
-                        print("File already exists. Change the  or edit the existing file.")     
+                        print("File already exists. Change the name or edit the existing file.")     
         except Exception as e:
                 print("An error occured: {e}")
 

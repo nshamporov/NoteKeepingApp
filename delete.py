@@ -19,18 +19,14 @@ def delete():
     def extract_number(filename):
         numbers = re.findall(r'\d+', filename)
         return [int(num) for num in numbers]
-        #  return[int(part) if part.isdigit() else part for part in filename.split()]
     
     while True:
         onlyfiles = fileslist()
 
         onlyfiles_filtered = filter(filter_condition, onlyfiles)
 
-        # Sort the filtered list
         onlyfiles_sorted = sorted(onlyfiles_filtered, key=extract_number)
 
-        # print("Debugging: Files before sorting:", onlyfiles)
-        # print("Debugging: Filtered and sorted files:", onlyfiles_sorted)
         title = "Delete"
         print(f"\n{'=' * 10} {title} {'=' * 10}\n")
 
@@ -48,9 +44,9 @@ def delete():
                 print("\nNote removed succefully." +  f"\n\n{'=' * 38}")
                 break
             else:
-                print("File doesn't exist. Check the spelling and try again.")
+                print("\nFile doesn't exist. Check the spelling and try again.")
         except Exception as e:
-            print("An error occurred: {e}")
+            print("\nAn error occurred: {e}")
 
 if __name__ == "__main__":
         delete()    
