@@ -31,13 +31,11 @@ def delete():
         print(f"\n{'=' * 10} {title} {'=' * 10}\n")
 
         for item in onlyfiles_sorted:
-             print(item)
+             print(item[:-4])
 
         choosefile = input("\nEnter the note you want to delete: ").strip()
-
-        # Function to delete specified file 
-
         chosenfile = os.path.join(folder_path, f"{choosefile}.txt")
+
         try:
             if os.path.exists(chosenfile):
                 os.remove(chosenfile)
