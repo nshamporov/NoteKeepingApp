@@ -24,43 +24,47 @@ def edit():
 
         onlyfiles_sorted = sorted(onlyfiles_filtered, key=extract_number)
 
-        title = "Delete"
+        title = "Edit"
         print(f"\n{'=' * 10} {title} {'=' * 10}\n")
         print("The list of notes: \n")
 
         for item in onlyfiles_sorted:
-             print(item[:-4])
+             print("--" + item[:-4])
             
         choosefile = input("\nEnter the note you want to edit: ")
         chosenfile = os.path.join(folder_path, f"{choosefile}.txt")
 
         if not os.path.exists(chosenfile):       
-            print(f"\nThe note doesn't exist. Check the spelling and try again.")
+            print(f"\n/ / / The note doesn't exist. Check the spelling and try again. / / /  ")
             return edit()
 
         def edit_type():
             editingtype = input("\nWould you like to append or overwrite the specified note? Type (a) for Append or (w) for Overwrite: ")
-
-            if editingtype == "a":      
-                appending = open(chosenfile, "a")
-                appending.write(input("\nEnter your content here: "))
-                appending.close()
-                print("Note edited successfuly." + f"\n\n{'=' * 38}")
-                break
-            elif editingtype == "w":    
-                overwriting = open(chosenfile, "w")
-                overwriting.write(input("Enter your content here: "))
-                overwriting.close()
-                print("Note edited successfuly." + f"\n\n{'=' * 38}")
-                break
-            else:                       
-                print("\nError: Wrong input.")
-                return edit_type()
-        edit_type()
         
+            try:
+                if editingtype == "a":      
+                    appending = open(chosenfile, "a")
+                    appending.write(input("\nEnter your content here: "))
+                    appending.close()
+                    print("\n<-Note edited successfuly.->" + f"\n\n{'=' * 38}")
+                    exit
+                elif editingtype == "w":    
+                    overwriting = open(chosenfile, "w")
+                    overwriting.write(input("\nEnter your content here: "))
+                    overwriting.close()
+                    print("\n<-Note edited successfuly.->" + f"\n\n{'=' * 38}")
+                    exit
+                else:                       
+                    print("\n/ / / Error: Wrong input. / / /")
+                    return edit_type()
+            except Exception as e:
+                print("An error occurred: {e}")
+        edit_type()
+        break
+        
+    
 if __name__ == "__main__":
     edit()  
 
 
-# edit type loop doesnt break
 

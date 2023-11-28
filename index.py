@@ -39,8 +39,7 @@ def main():
 if __name__ == "__main__":
     main()
 
+#   Editing file is done
 
-
-# In the editiing file when you choose to either append or overwrite, if you input anything in there the program appends it.
 # Need more design for some files
 #Need documentation
