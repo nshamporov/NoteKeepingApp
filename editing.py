@@ -34,27 +34,33 @@ def edit():
         choosefile = input("\nEnter the note you want to edit: ")
         chosenfile = os.path.join(folder_path, f"{choosefile}.txt")
 
-        if not os.path.exists(chosenfile):          # Check if the file exists 
+        if not os.path.exists(chosenfile):       
             print(f"\nThe note doesn't exist. Check the spelling and try again.")
             return edit()
 
-        editingtype = input("\nWould you like to append or overwrite the specified note? Type (a) for Append or (w) for Overwrite: ")
+        def edit_type():
+            editingtype = input("\nWould you like to append or overwrite the specified note? Type (a) for Append or (w) for Overwrite: ")
 
-        if editingtype == "a" or "A":      
-            editing = open(chosenfile, "a")
-            editing.write(input("\nEnter your content here: "))
-            editing.close()
-            print("Note edited successfuly." + f"\n\n{'=' * 38}")
-            break
-        elif editingtype == "w" or "W":    
-            editing = open(chosenfile, "w")
-            editing.write(input("Enter your content here: "))
-            editing.close()
-            print("Note edited successfuly." + f"\n\n{'=' * 38}")
-            break
-        else:                       
-            print("\nError: Wrong input.")
-
+            if editingtype == "a":      
+                appending = open(chosenfile, "a")
+                appending.write(input("\nEnter your content here: "))
+                appending.close()
+                print("Note edited successfuly." + f"\n\n{'=' * 38}")
+                break
+            elif editingtype == "w":    
+                overwriting = open(chosenfile, "w")
+                overwriting.write(input("Enter your content here: "))
+                overwriting.close()
+                print("Note edited successfuly." + f"\n\n{'=' * 38}")
+                break
+            else:                       
+                print("\nError: Wrong input.")
+                return edit_type()
+        edit_type()
+        
 if __name__ == "__main__":
-        edit()  
+    edit()  
+
+
+# edit type loop doesnt break
 

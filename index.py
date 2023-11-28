@@ -23,7 +23,7 @@ def main():
             add.create()
         elif user_choice == "2":
             view = importlib.import_module("view")
-            view.viewfile()
+            view.view()
         elif user_choice == "3":
             edit = importlib.import_module("editing")
             edit.edit()
@@ -38,3 +38,9 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+# In the editiing file when you choose to either append or overwrite, if you input anything in there the program appends it.
+# Need more design for some files
+#Need documentation

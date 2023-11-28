@@ -37,9 +37,9 @@ def view():
 
         try:
             if os.path.exists(chosenfile):
-                open(chosenfile, "r") as file_content
-                print("\n" + file_content.read() + "\n")
-                break
+                with open(chosenfile, "r") as file_content:
+                    print("\n" + file_content.read() + "\n")
+                    break
             else:
                 print("Note doesn't exist. Check the spelling and try again.")
                 return view()
